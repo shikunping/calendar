@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>日历</title>
+		<style rel="stylesheet">
+			body{margin: 0;padding: 0;}
+			/*日期选择*/
+			.mui-bar-com {
+			    background-color: #3ca6ff;
+			}
+			.mui-bar {
+			    height: 44px;
+			    box-shadow: none;
+			    padding-right: 15px;
+			    padding-left: 15px;
+			    position: fixed;
+			    left: 0;
+			    top: 0;
+			    width: 100%;
+			}
+			.mui-bar .h-div {
+			    height: 44px;
+		        text-align: center;
+			}
+			.mui-bar .mui-title {
+			    right: 40px;
+			    left: 40px;
+			    display: inline-block;
+			    overflow: hidden;
+			    width: auto;
+			    margin: 0;
+			    text-overflow: ellipsis;
+			    font-size: 17px;
+    			color: #fff;
+    			line-height: 44px;
+			}
+		.mui-bar~.mui-content{padding-top: 64px;}
+			
+		#times .mui-content{overflow: scroll;height: 100%;}
+		.week{list-style: none;list-style-type:none;height: 20px;border-bottom: 1px solid #e0e0e0;padding-left: 0;margin: 0;position: fixed;left: 0;top: 44px;}
+		.week li,.calendarList li,.calendarList2 li,.calendarList3 li{float: left;list-style: none;text-align: center;}
+		.week li:nth-child(1),.week li:nth-child(7){color: #ff6701 !important;}
+		.calendarList,.calendarList2,.calendarList3{list-style: none;padding-left: 0;margin: 0 !important;}
+		.calendarList li,.calendarList2 li,.calendarList3 li{color: #262626;}
+		.able-qiandao{background-color: #3ca6ff;color: #fff !important;border-radius: 4px;}
+		.calendarList li.color-no,.calendarList2 li.color-no,.calendarList3 li.color-no{color: #bac3ca !important;}
+		.calendarList li:nth-child(7n+1),.calendarList li:nth-child(7n),.calendarList2 li:nth-child(7n+1),.calendarList2 li:nth-child(7n),.calendarList3 li:nth-child(7n+1),.calendarList3 li:nth-child(7n){color: #ff6701;}
+
+
+		</style>
+	</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav mui-bar-com">
+			<div class="h-div">
+				<h1 class="mui-title">
+					选择日期
+				</h1>
+				
+			</div>
+		</header>
+		
+		<div class="mui-content">
+			<div class="checkin"></div>
+		</div>
+		
+		
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/sign.js"></script>
+		<script>
+			var arry = [];
+	 		date(arry,1,'0');
+	 		
+	 		var selectTime;
+	 		
+	 		
+	 		$(".datas").click(function(){
+	 			if(!$(this).hasClass('color-no') && $(this).text()){
+	 				/*获取当前选中时间 */
+	 				selectTime = $(this).attr('daytime');
+	 				console.log(selectTime);
+	 				
+					$(".datas").removeClass('able-qiandao');
+					$(this).addClass('able-qiandao');
+	
+	 				/*隐藏时间显示*/
+	 				$('#times').removeClass('mui-active');
+	 				
+	 			}
+	 		})
+		</script>
+	</body>
+</html>
